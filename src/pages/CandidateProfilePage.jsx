@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useChatbot } from '../hooks/useChatbot';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PageHeader from '../components/layout/PageHeader';
 import Card from '../components/common/Card';
@@ -13,20 +12,18 @@ import { candidateService } from '../services/candidateService';
 import { jobService } from '../services/jobService';
 import { interviewService } from '../services/interviewService';
 import { useAsync } from '../hooks/useAsync';
+import { useChatbot } from '../hooks/useChatbot';
 import { CANDIDATE_STATUS, SCORE_THRESHOLD } from '../utils/constants';
 import { formatDate, initials } from '../utils/formatters';
 
 export default function CandidateProfilePage() {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  // ── 1. Declare hooks first ──────────────────────
   const [status, setStatus] = useState('');
   const [feedback, setFeedback] = useState('');
   const { updateContext } = useChatbot();
-  useEffect(() => {
-  if (candidate.data) {
-    updateContext({ candidate: candidate.data });
-  }
-}, [candidate.data, updateContext]);
 
   const candidate = useAsync(() => candidateService.getById(id), [id]);
   const job = useAsync(
@@ -34,6 +31,14 @@ export default function CandidateProfilePage() {
     [candidate.data?.jobId]
   );
 
+  // ── 2. Now it's safe to use `candidate` ─────────
+  useEffect(() => {
+    if (candidate.data) {
+      updateContext({ candidate: candidate.data });
+    }
+  }, [candidate.data, updateContext]);
+
+  // ── 3. Early returns come AFTER all hooks ───────
   if (candidate.loading) return <Loader label="Loading candidate…" />;
   if (candidate.error) return <div className="alert alert--error">{candidate.error}</div>;
 
@@ -55,7 +60,6 @@ export default function CandidateProfilePage() {
     setFeedback(`Interview request sent. Response link: /candidate/respond/${interview.token}`);
     candidate.reload();
   };
-
   return (
     <>
       <PageHeader
