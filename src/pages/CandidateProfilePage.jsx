@@ -61,7 +61,7 @@ export default function CandidateProfilePage() {
     candidate.reload();
   };
   return (
-     // ... rest of JSX (unchanged from earlier answer)...Billa Bond
+     // ... rest of JSX (unchanged from earlier answer)
     <>
       <PageHeader
         breadcrumb="Candidates / Profile"
