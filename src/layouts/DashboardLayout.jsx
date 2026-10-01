@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Sidebar from '../components/layout/Sidebar';
+import Chatbot from '../components/chatbot/Chatbot';
 import './dashboard-layout.css';
 
 export default function DashboardLayout() {
@@ -19,6 +20,9 @@ export default function DashboardLayout() {
       {sidebarOpen && (
         <div className="dashboard-layout__overlay" onClick={() => setSidebarOpen(false)} />
       )}
+
+      {/* ✅ AI Chatbot */}
+      <Chatbot />
     </div>
   );
 }

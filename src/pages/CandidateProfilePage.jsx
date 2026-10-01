@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useChatbot } from '../hooks/useChatbot';
 import { useNavigate, useParams } from 'react-router-dom';
 import PageHeader from '../components/layout/PageHeader';
 import Card from '../components/common/Card';
@@ -20,6 +21,12 @@ export default function CandidateProfilePage() {
   const navigate = useNavigate();
   const [status, setStatus] = useState('');
   const [feedback, setFeedback] = useState('');
+  const { updateContext } = useChatbot();
+  useEffect(() => {
+  if (candidate.data) {
+    updateContext({ candidate: candidate.data });
+  }
+}, [candidate.data, updateContext]);
 
   const candidate = useAsync(() => candidateService.getById(id), [id]);
   const job = useAsync(
