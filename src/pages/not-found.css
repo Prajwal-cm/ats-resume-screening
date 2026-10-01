@@ -1,0 +1,4 @@
+.nf { min-height: 100vh; display: grid; place-content: center; text-align: center; gap: 8px; }
+.nf h1 { font-size: 64px; margin: 0; color: #4f46e5; }
+.nf p { color: #64748b; margin: 0 0 12px; }
+.nf__link { color: #4f46e5; font-weight: 600; text-decoration: none; }

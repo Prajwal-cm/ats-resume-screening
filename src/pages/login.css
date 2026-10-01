@@ -1,0 +1,14 @@
+.login-card { width: 100%; max-width: 400px; }
+.login-card__head { margin-bottom: 22px; }
+.login-card__head h1 { font-size: 22px; margin: 0 0 4px; color: #0f172a; }
+.login-card__head p { font-size: 13px; color: #64748b; margin: 0; }
+.login-card__error {
+  background: #fee2e2; color: #b91c1c; font-size: 13px;
+  padding: 10px 12px; border-radius: 8px; margin-bottom: 14px;
+}
+.login-card__demo {
+  margin-top: 22px; padding-top: 18px; border-top: 1px dashed #e2e8f0;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.login-card__demo span { font-size: 12px; color: #94a3b8; }
+.login-card__demo-btns { display: flex; gap: 8px; }

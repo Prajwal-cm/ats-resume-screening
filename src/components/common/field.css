@@ -1,0 +1,21 @@
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.field__label { font-size: 13px; font-weight: 600; color: #334155; }
+.field__control {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+  color: #0f172a;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field__control:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+.field__control--area { resize: vertical; line-height: 1.55; }
+.field__control--error { border-color: #ef4444; }
+.field__error { font-size: 12px; color: #ef4444; }
+.field__hint { font-size: 12px; color: #94a3b8; }

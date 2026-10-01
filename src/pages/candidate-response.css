@@ -1,0 +1,16 @@
+.response-page {
+  min-height: 100vh; background: #f1f5f9;
+  display: grid; place-items: center; padding: 24px;
+}
+.response-card { max-width: 520px; width: 100%; }
+.response-card__head { text-align: center; margin-bottom: 22px; }
+.response-card__logo { font-size: 30px; color: #4f46e5; }
+.response-card__head h1 { font-size: 20px; margin: 10px 0 6px; color: #0f172a; }
+.response-card__head p { font-size: 14px; color: #64748b; margin: 0; }
+.response-card__message {
+  background: #f8fafc; border-radius: 10px; padding: 14px 16px; margin: 16px 0;
+}
+.response-card__message h4 { margin: 0 0 6px; font-size: 13px; color: #334155; }
+.response-card__message p { margin: 0; font-size: 13px; color: #475569; line-height: 1.55; }
+.response-card__actions { display: flex; gap: 12px; margin-top: 20px; }
+.response-card__actions .btn { flex: 1; }
